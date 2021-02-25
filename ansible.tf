@@ -34,7 +34,7 @@ module "this" {
   become             = true
   playbook_file_path = "${path.module}/ansible/main.yml"
   playbook_vars = merge({
-    ssl_enable = domain_name != ""
+    ssl_enable = domain_name == "" ? false : true
   }, local.playbook_vars)
   requirements_file_path = "${path.module}/ansible/requirements.yml"
 }
