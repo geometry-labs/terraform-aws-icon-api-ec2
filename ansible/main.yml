@@ -1,0 +1,15 @@
+- hosts: all
+  become: true
+  roles:
+    - role: setup
+    
+    - role: volumes
+      when: instance_store_enabled | default(false) | bool
+
+    - role: geerlingguy.docker
+
+    - icon-api
+
+  vars:
+    docker_users:
+      - "{{ admin_user | default('ubuntu') }}"
