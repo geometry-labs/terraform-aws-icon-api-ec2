@@ -1,7 +1,7 @@
-# terraform-aws-icon-api
+# terraform-icon-aws-api
 
-[![open-issues](https://img.shields.io/github/issues-raw/geometry-labs/terraform-aws-icon-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-aws-icon-api/issues)
-[![open-pr](https://img.shields.io/github/issues-pr-raw/geometry-labs/terraform-aws-icon-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-aws-icon-api/pulls)
+[![open-issues](https://img.shields.io/github/issues-raw/geometry-labs/terraform-icon-aws-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-icon-aws-api/issues)
+[![open-pr](https://img.shields.io/github/issues-pr-raw/geometry-labs/terraform-icon-aws-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-icon-aws-api/pulls)
 
 ## Features
 
@@ -15,12 +15,12 @@ For Terraform v0.12.0+
 
 ```hcl
 module "this" {
-  source = "github.com/geometry-labs/terraform-aws-icon-api"
+  source = "github.com/geometry-labs/terraform-icon-aws-api"
 }
 ```
 ## Examples
 
-- [defaults](https://github.com/geometry-labs/terraform-aws-icon-api/tree/master/examples/defaults)
+- [defaults](https://github.com/geometry-labs/terraform-icon-aws-api/tree/master/examples/defaults)
 
 ## Known  Issues
 No issue is creating limit on this module.
@@ -40,7 +40,9 @@ No issue is creating limit on this module.
 | availability\_zone | n/a | `string` | n/a | yes |
 | create | Boolean to create resources or not | `bool` | `true` | no |
 | create\_sg | Bool for create security group | `bool` | `true` | no |
+| domain\_name | n/a | `string` | `""` | no |
 | ebs\_size | n/a | `number` | `10` | no |
+| hostname | n/a | `string` | `""` | no |
 | iam\_instance\_profile\_id | Instance profile ID | `string` | n/a | yes |
 | instance\_type | Instance type | `string` | `"t3.small"` | no |
 | key\_name | The key pair to import - leave blank to generate new keypair from pub/priv ssh key path | `string` | `""` | no |

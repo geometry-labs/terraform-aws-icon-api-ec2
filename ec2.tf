@@ -114,6 +114,16 @@ resource "aws_instance" "this" {
   tags                   = local.tags
 }
 
+resource "aws_eip" "this" {
+  tags = merge({ Name : var.name }, var.tags)
+}
+
+resource "aws_eip_association" "this" {
+  count       = var.create ? 1 : 0
+  instance_id = join("", aws_instance.this.*.id)
+  public_ip   = aws_eip.this.public_ip
+}
+
 resource "aws_volume_attachment" "this" {
   count = var.create ? 1 : 0
 
