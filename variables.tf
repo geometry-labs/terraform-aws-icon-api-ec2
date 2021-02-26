@@ -10,7 +10,7 @@ variable "create" {
 variable "name" {
   description = "The name for the label"
   type        = string
-  default     = "prep"
+  default     = "icon-api"
 }
 
 variable "tags" {

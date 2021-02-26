@@ -15,12 +15,8 @@ variable "public_ports" {
   type        = list(number)
   default = [
     22,
-    7100,
-    9000,
-    9100,
-    9113,
-    9115,
-    8080,
+    80,
+    443,
   ]
 }
 
@@ -51,7 +47,7 @@ resource "aws_security_group" "this" {
   count       = var.create_sg && var.create ? 1 : 0
   vpc_id      = var.vpc_id == "" ? null : var.vpc_id
   name        = "${var.name}-sg"
-  description = "ICON P-Rep node SG"
+  description = "ICON API SG"
   tags        = var.tags
 }
 
@@ -76,7 +72,6 @@ resource "aws_security_group_rule" "private_ports" {
   to_port           = var.private_ports[count.index]
   cidr_blocks       = var.private_port_cidrs
 }
-
 
 resource "aws_security_group_rule" "prep_egress" {
   count             = var.create_sg && var.create ? 1 : 0

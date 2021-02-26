@@ -8,7 +8,8 @@
 
     - role: geerlingguy.docker
 
-    - icon-api
+    - role: geometrylabs.icon_api
+#    - role: icon-api
 
   vars:
     docker_users:

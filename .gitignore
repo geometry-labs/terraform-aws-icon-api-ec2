@@ -1,10 +1,11 @@
 .idea
 
 # Terraform and terragrunt
-*.tfstate/
+*.tfstate
 *.tfstate.backup
 *.tfplan
 .terragrunt-cache/
 .terraform/
+terraform.tfvars
 
 ansible/roles/icon-api
