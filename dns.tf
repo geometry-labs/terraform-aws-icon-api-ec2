@@ -10,7 +10,7 @@ variable "hostname" {
 
 data "aws_route53_zone" "this" {
   count = var.domain_name != "" && var.create ? 1 : 0
-  name  = var.domain_name
+  name  = "${var.domain_name}."
 }
 
 resource "aws_route53_record" "hostname" {
