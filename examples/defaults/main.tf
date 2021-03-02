@@ -22,7 +22,7 @@ module "vpc" {
   enable_ipv6    = true
 }
 
-module "defaults" {
+module "main" {
   source            = "../.."
   name              = random_pet.this.id
   availability_zone = "${var.aws_region}a"

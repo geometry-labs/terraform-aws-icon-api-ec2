@@ -1,11 +1,12 @@
-# terraform-icon-aws-api
+<p align="center">
+  <h3 align="center">terraform-icon-aws-api-ec2</h3>
 
-[![open-issues](https://img.shields.io/github/issues-raw/geometry-labs/terraform-icon-aws-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-icon-aws-api/issues)
-[![open-pr](https://img.shields.io/github/issues-pr-raw/geometry-labs/terraform-icon-aws-api?style=for-the-badge)](https://github.com/geometry-labs/terraform-icon-aws-api/pulls)
+  <p align="center">
+    Terraform module to setup a node to run the streaming data stack for the ICON Blockchain.
+    <br />
+</p>
 
-## Features
-
-This module...
+See [icon-api](https://github.com/geometry-labs/icon-api) for more information on the application stack. 
 
 ## Terraform Versions
 
@@ -16,6 +17,18 @@ For Terraform v0.12.0+
 ```hcl
 module "this" {
   source = "github.com/geometry-labs/terraform-icon-aws-api"
+  name                = random_pet.this.id
+  availability_zone   = "${var.aws_region}a"
+  subnet_id           = module.vpc.public_subnets[0]
+  vpc_id              = module.vpc.vpc_id
+  private_key_path    = var.private_key_path
+  public_key_path     = var.public_key_path
+  domain_name         = "geometry-ci.net"
+  certbot_admin_email = "foo@bar.com"
+
+// Optional values.  See table below for more options. 
+//  instance_type = "m5.xlarge" # spendy but you'll appreciate it if running intensive queries
+//  root_volume_size = 400 # If you aren't interested in historical, set to smaller as it will fill up as time goes.  400 is for from genesis
 }
 ```
 ## Examples
