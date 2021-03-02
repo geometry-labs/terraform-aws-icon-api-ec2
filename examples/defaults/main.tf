@@ -30,4 +30,8 @@ module "main" {
   public_key_path   = var.public_key_path
   subnet_id         = module.vpc.public_subnets[0]
   vpc_id            = module.vpc.vpc_id
+
+  // Optional values.  See table below for more options.
+  //  instance_type = "m5.xlarge" # spendy but you'll appreciate it if running intensive queries
+  //  root_volume_size = 400 # If you aren't interested in historical, set to smaller as it will
 }
