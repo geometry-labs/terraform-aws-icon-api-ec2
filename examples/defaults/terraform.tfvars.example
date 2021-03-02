@@ -1,0 +1,4 @@
+private_key_path = "/home/yourname/.ssh/testing"
+public_key_path  = "/home/yourname/.ssh/testing.pub"
+instance_type = "m5.xlarge" # spendy but you'll appreciate it if running intensive queries
+root_volume_size = 400 # If you aren't interested in historical, set to smaller as it will fill up as time goes.  400 is for from genesis
